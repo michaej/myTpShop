@@ -1,0 +1,443 @@
+{
+    "swagger": "2.0",
+    "paths": {
+        "/img": {
+            "post": {
+                "tags": [
+                    "img"
+                ],
+                "description": "\u83b7\u53d6\u56fe\u7247",
+                "operationId": "findPets",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "session_key",
+                        "in": "query",
+                        "description": "session_key",
+                        "required": false,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "\u8bf7\u6c42\u5931\u8d25",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorModel"
+                        }
+                    },
+                    "200": {
+                        "description": "\u8bf7\u6c42\u6210\u529f",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessModel"
+                        }
+                    }
+                }
+            }
+        },
+        "/photo": {
+            "post": {
+                "tags": [
+                    "img"
+                ],
+                "description": "\u83b7\u53d6\u7528\u6237\u6240\u6709\u56fe\u7247/post[add_img_time]\u83b7\u53d6\u6700\u65b0\u4e0a\u4f20\u56fe\u7247",
+                "operationId": "findPets",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "session_key",
+                        "in": "query",
+                        "description": "session_key",
+                        "required": false,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv"
+                    },
+                    {
+                        "name": "add_img_time",
+                        "in": "query",
+                        "description": "\u4f20\u9001\u70b9\u51fb\u83b7\u53d6\u5230\u7684\u65f6\u95f4\u6233",
+                        "required": false,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "\u8bf7\u6c42\u5931\u8d25",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorModel"
+                        }
+                    },
+                    "200": {
+                        "description": "\u8bf7\u6c42\u6210\u529f",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessModel"
+                        }
+                    }
+                }
+            }
+        },
+        "/templet": {
+            "post": {
+                "tags": [
+                    "img"
+                ],
+                "description": "\u83b7\u53d6\u6a21\u677f/\u6709post[id],\u5219\u4e3a\u5207\u6362\u6a21\u677f",
+                "operationId": "findPets",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "session_key",
+                        "in": "query",
+                        "description": "session_key",
+                        "required": false,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv"
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "\u56fe\u7247\u6a21\u677fid",
+                        "required": false,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "\u8bf7\u6c42\u5931\u8d25",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorModel"
+                        }
+                    },
+                    "200": {
+                        "description": "\u8bf7\u6c42\u6210\u529f",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessModel"
+                        }
+                    }
+                }
+            }
+        },
+        "/add_img": {
+            "post": {
+                "tags": [
+                    "img"
+                ],
+                "description": "\u4e0a\u4f20\u56fe\u7247",
+                "operationId": "findPets",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "session_key",
+                        "in": "query",
+                        "description": "session_key",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv"
+                    },
+                    {
+                        "name": "file",
+                        "in": "query",
+                        "description": "\u4e0a\u4f20\u7684\u56fe\u7247",
+                        "required": true,
+                        "type": "formData",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "pet response",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Pet"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorModel"
+                        }
+                    }
+                }
+            }
+        },
+        "/music": {
+            "post": {
+                "tags": [
+                    "music"
+                ],
+                "description": "\u83b7\u53d6\u97f3\u4e50/post[name]\u83b7\u53d6\u97f3\u4e50\u7c7b\u4e0b\u97f3\u4e50",
+                "operationId": "findPets",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "session_key",
+                        "in": "query",
+                        "description": "session_key",
+                        "required": false,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "\u97f3\u4e50\u6a21\u677f\u540d\u79f0",
+                        "required": false,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "\u8bf7\u6c42\u5931\u8d25",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorModel"
+                        }
+                    },
+                    "200": {
+                        "description": "\u8bf7\u6c42\u6210\u529f",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessModel"
+                        }
+                    }
+                }
+            }
+        },
+        "/edit_music": {
+            "post": {
+                "tags": [
+                    "music"
+                ],
+                "description": "\u83b7\u53d6\u97f3\u4e50\u5206\u7c7b\u540d/post[id]\u5207\u6362\u97f3\u4e50",
+                "operationId": "findPets",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "session_key",
+                        "in": "query",
+                        "description": "session_key",
+                        "required": false,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv"
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "\u97f3\u4e50id",
+                        "required": false,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "\u8bf7\u6c42\u5931\u8d25",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorModel"
+                        }
+                    },
+                    "200": {
+                        "description": "\u8bf7\u6c42\u6210\u529f",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessModel"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/product/1": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "description": "\u7528\u6237\u767b\u5f55",
+                "operationId": "findPets",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "\u5fae\u4fe1code",
+                        "required": false,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "\u8bf7\u6c42\u5931\u8d25",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorModel"
+                        }
+                    },
+                    "200": {
+                        "description": "\u8bf7\u6c42\u6210\u529f",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessModel"
+                        }
+                    }
+                }
+            }
+        },
+        "/updateUserInfo": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "description": "\u66f4\u65b0\u7528\u6237\u4fe1\u606f\uff0c\u5934\u50cf\uff0c\u6027\u522b\u7b49",
+                "operationId": "findPetById",
+                "parameters": [
+                    {
+                        "name": "iv",
+                        "in": "query",
+                        "description": "\u5fae\u4fe1\u767b\u5f55\u6210\u529f\u8fd4\u56de\u7684iv",
+                        "required": true,
+                        "type": "string",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "encryptedData",
+                        "in": "query",
+                        "description": "\u5fae\u4fe1\u767b\u5f55\u6210\u529f\u8fd4\u56de\u7684encryptedData \u52a0\u5bc6\u8fc7\u7684\u6570\u636e",
+                        "required": true,
+                        "type": "string",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "session_key",
+                        "in": "query",
+                        "description": "session_key",
+                        "required": true,
+                        "type": "string",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\u8fd4\u56de\u6210\u529f",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessModel"
+                        }
+                    },
+                    "400": {
+                        "description": "\u8bf7\u6c42\u5931\u8d25",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorModel"
+                        }
+                    }
+                }
+            }
+        },
+        "/getUserinfo": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "description": "\u83b7\u53d6\u7528\u6237\u7684\u4fe1\u606f",
+                "operationId": "findPets",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "session_key",
+                        "in": "query",
+                        "description": "session_key ",
+                        "required": false,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "pet response",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Pet"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorModel"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {},
+    "tags": [
+        {
+            "name": "Token",
+            "description": "获取用户的token",
+            "externalDocs": {
+                "description": "\u7528\u6237\u767b\u5f55\uff0c\u83b7\u53d6\u56fe\u7247\u4fe1\u606f\u7b49",
+                "url": "https://xxxxxxxxx.com/api/img"
+            }
+        },
+        {
+            "name": "Users",
+            "description": "获取用户信息",
+            "externalDocs": {
+                "description": "\u7528\u6237\u767b\u5f55\uff0c\u66f4\u65b0\u7528\u6237\u4fe1\u606f\u7b49",
+                "url": "https://xxxxxxxxx.com/api/user"
+            }
+        }
+    ]
+}
