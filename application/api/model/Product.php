@@ -55,7 +55,7 @@ class Product extends BaseModel
         } else {
             // paginate 第二参数true表示采用简洁模式，简洁模式不需要查询记录总数
             return $query->paginate(
-                $size, true, [
+                $size, false, [
                 'page' => $page
             ]);
         }
@@ -137,10 +137,13 @@ class Product extends BaseModel
         return $products;
     }
 
-    public static function getAllInProduct()
+    public static function getAllInProduct( $size,$page)
     {
 
-        $allproduct = self::with('categoryname')->select();
+        $allproduct = self::with('categoryname')->paginate(
+            $size, false, [
+            'page' => $page
+        ]);;
 
         return $allproduct;
 

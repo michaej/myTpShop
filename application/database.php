@@ -13,15 +13,15 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-//    'hostname'        => '127.0.0.1',
-    'hostname'        => '47.93.36.226',
+   'hostname'        => '127.0.0.1',
+    // 'hostname'        => '47.93.36.226',
     // 数据库名
-    'database'        => 'discount',
+    'database'        => 'zerg',
     // 用户名
     'username'        => 'root',
     // 密码
-//    'password'        => '123456',
-    'password'        => 'JiShi1Ok',
+   'password'        => '123456',
+    // 'password'        => 'JiShi1Ok',
     // 端口
     'hostport'        => '3306',
     // 连接dsn

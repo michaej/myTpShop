@@ -1,5 +1,5 @@
 window.base={
-    g_restUrl:'http://jishi1.com/api/v1/',
+    g_restUrl:'http://shop.test/api/v1/',
 
     getData:function(params){
         if(!params.type){

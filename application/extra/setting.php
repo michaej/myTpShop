@@ -14,7 +14,7 @@ return [
     //  非敏感配置文件
     //  +---------------------------------------
     'token_expire_in' => 7200,
-    'img_prefix' => 'https://jishi1.com/images/',
+    'img_prefix' => 'http://shop.test/images/',
     'img_prefixs' => 'https://jishi1.com/uploads/'
 
 ];

@@ -18,6 +18,7 @@ use app\lib\exception\ParameterException;
 use app\lib\exception\ProductException;
 use app\lib\exception\ThemeException;
 use app\api\controller\BaseController;
+use app\lib\exception\MissException;
 
 class Product extends BaseController
 {
@@ -67,6 +68,7 @@ class Product extends BaseController
         //        $pagingProducts->data = $data;
         return [
             'current_page' => $pagingProducts->currentPage(),
+            'total' => $pagingProducts->total(),
             'data' => $data
         ];
     }
@@ -99,7 +101,7 @@ class Product extends BaseController
      * @return \think\Paginator
      * @throws ThemeException
      */
-    public function getAllInProduct()
+    public function getAllInProduct( $page_size , $page_no)
     {
 
         header('Access-Control-Allow-Origin: *');
@@ -107,14 +109,17 @@ class Product extends BaseController
         header('Access-Control-Allow-Methods: GET');
 
 
-        $products = ProductModel::getAllInProduct();
+        $products = ProductModel::getAllInProduct(  $page_size , $page_no);
         if ($products->isEmpty()) {
-            throw new ThemeException();
+            throw new MissException([
+                'msg' => '暂无数据',
+                'errorCode' => 200
+            ]);
         }
         $data = $products
             ->hidden(['summary'])
             ->toArray();
-        return $data;
+        return $products;
     }
 
     /**
